@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import { products } from "@/data/products";
@@ -15,6 +16,17 @@ export function WishlistView() {
     return (
       <section className="container grid min-h-[65vh] place-items-center py-16 text-center">
         <div className="max-w-xl">
+          <div className="relative mx-auto mb-8 aspect-[16/10] w-full overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1000&q=80"
+              alt="Saved outerwear and performance favorites"
+              fill
+              sizes="(min-width: 768px) 576px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/58 to-transparent" />
+          </div>
           <Heart className="mx-auto h-12 w-12" />
           <h1 className="mt-6 font-display text-5xl uppercase leading-none">Wishlist is quiet</h1>
           <p className="mt-4 text-muted-foreground">Save products from quick view or product cards and they will land here.</p>

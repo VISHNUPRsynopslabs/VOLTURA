@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { toast } from "sonner";
@@ -26,6 +27,20 @@ export function ContactForm() {
   return (
     <section className="container grid gap-10 py-10 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
+        <div className="relative mb-8 aspect-[16/10] overflow-hidden bg-muted">
+          <Image
+            src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+            alt="VOLTURA support studio editorial"
+            fill
+            sizes="(min-width: 1024px) 42vw, 100vw"
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <p className="absolute bottom-5 left-5 text-sm font-semibold uppercase tracking-[0.22em] text-white">
+            Studio support
+          </p>
+        </div>
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">Contact</p>
         <h1 className="mt-3 font-display text-5xl uppercase leading-none md:text-7xl">Talk to support</h1>
         <p className="mt-5 text-lg leading-8 text-muted-foreground">

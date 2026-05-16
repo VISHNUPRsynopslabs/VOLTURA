@@ -272,7 +272,7 @@ export function Navbar() {
                 </div>
                 <div className="relative min-h-64 overflow-hidden">
                   <Image
-                    src="/assets/hero-uniform.png"
+                    src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
                     alt="Training editorial"
                     fill
                     sizes="420px"

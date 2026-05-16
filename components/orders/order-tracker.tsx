@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { Check, Package, Search, Truck } from "lucide-react";
 import { toast } from "sonner";
@@ -30,9 +31,30 @@ export function OrderTracker() {
 
   return (
     <section className="container py-10">
-      <div className="mx-auto max-w-4xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">Order status</p>
-        <h1 className="mt-3 font-display text-5xl uppercase leading-none md:text-7xl">Track order</h1>
+      <div className="mx-auto max-w-5xl">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">Order status</p>
+            <h1 className="mt-3 font-display text-5xl uppercase leading-none md:text-7xl">Track order</h1>
+            <p className="mt-5 text-muted-foreground">
+              Follow the dispatch path from studio packing to final delivery scan.
+            </p>
+          </div>
+          <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80"
+              alt="Packed premium order ready for shipping"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/56 to-transparent" />
+            <p className="absolute bottom-5 left-5 text-sm font-semibold uppercase tracking-[0.22em] text-white">
+              Live shipment desk
+            </p>
+          </div>
+        </div>
         <form onSubmit={submit} className="mt-8 flex gap-2">
           <Input value={orderId} onChange={(event) => setOrderId(event.target.value)} placeholder="Order number" />
           <Button type="submit">

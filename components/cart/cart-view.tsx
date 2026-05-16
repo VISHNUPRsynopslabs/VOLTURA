@@ -49,6 +49,17 @@ export function CartView() {
     return (
       <section className="container grid min-h-[65vh] place-items-center py-16 text-center">
         <div className="max-w-xl">
+          <div className="relative mx-auto mb-8 aspect-[16/10] w-full overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1000&q=80"
+              alt="Premium footwear ready to add to cart"
+              fill
+              sizes="(min-width: 768px) 576px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/58 to-transparent" />
+          </div>
           <ShoppingBag className="mx-auto h-12 w-12" />
           <h1 className="mt-6 font-display text-5xl uppercase leading-none">Your cart is empty</h1>
           <p className="mt-4 text-muted-foreground">Build a premium rotation with new arrivals and performance staples.</p>

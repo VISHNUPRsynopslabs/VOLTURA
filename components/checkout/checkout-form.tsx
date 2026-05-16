@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useMemo, useState } from "react";
 import { CreditCard, LockKeyhole, Truck } from "lucide-react";
 import { z } from "zod";
@@ -133,6 +134,20 @@ export function CheckoutForm() {
         </form>
 
         <aside className="h-fit border p-5 lg:sticky lg:top-32">
+          <div className="relative mb-5 aspect-[16/11] overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=80"
+              alt="Premium checkout campaign"
+              fill
+              sizes="(min-width: 1024px) 384px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/62 to-transparent" />
+            <p className="absolute bottom-4 left-4 text-xs font-semibold uppercase tracking-[0.22em] text-white">
+              Secure studio checkout
+            </p>
+          </div>
           <h2 className="font-display text-3xl uppercase">Summary</h2>
           <div className="mt-5 grid gap-4">
             {items.map((item) => (

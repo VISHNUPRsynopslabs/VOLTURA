@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CreditCard, Heart, MapPin, PackageCheck, UserRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -60,6 +61,20 @@ export function ProfileDashboard() {
           </div>
         </section>
         <aside className="border bg-muted/45 p-5">
+          <div className="relative mb-5 aspect-[4/5] overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+              alt="VOLTURA member dashboard editorial"
+              fill
+              sizes="(min-width: 1024px) 352px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/58 to-transparent" />
+            <p className="absolute bottom-4 left-4 right-4 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+              Early access edit
+            </p>
+          </div>
           <UserRound className="h-6 w-6" />
           <h2 className="mt-5 font-display text-3xl uppercase">VOLTURA member</h2>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">

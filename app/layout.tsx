@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/assets/hero-velocity.png",
+        url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80",
         width: 1600,
         height: 900,
         alt: "Premium sportswear editorial campaign"

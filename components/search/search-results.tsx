@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Search } from "lucide-react";
@@ -50,7 +51,18 @@ export function SearchResults() {
       {results.length ? (
         <ProductGrid products={results} />
       ) : (
-        <div className="border p-8 text-center">
+        <div className="mx-auto max-w-2xl border p-5 text-center md:p-8">
+          <div className="relative mb-6 aspect-[16/9] overflow-hidden bg-muted">
+            <Image
+              src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1100&q=80"
+              alt="Performance apparel search inspiration"
+              fill
+              sizes="(min-width: 768px) 672px, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/58 to-transparent" />
+          </div>
           <p className="font-semibold">No products matched that search.</p>
           <p className="mt-2 text-sm text-muted-foreground">Try runner, jacket, training, or lifestyle.</p>
         </div>

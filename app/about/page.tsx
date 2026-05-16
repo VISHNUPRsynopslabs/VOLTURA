@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <section className="relative min-h-[72vh] overflow-hidden">
         <Image
-          src="/assets/hero-carbon.png"
+          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85"
           alt="VOLTURA editorial campaign"
           fill
           priority

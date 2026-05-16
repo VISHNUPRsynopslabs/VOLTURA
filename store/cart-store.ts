@@ -2,6 +2,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { products } from "@/data/products";
 import type { Product } from "@/types/product";
 
 export type CartLine = {
@@ -77,7 +78,23 @@ export const useCartStore = create<CartState>()(
       setCoupon: (coupon) => set({ coupon })
     }),
     {
-      name: "voltura-cart"
+      name: "voltura-cart",
+      version: 2,
+      migrate: (persistedState) => {
+        const state = persistedState as Partial<CartState>;
+        const refreshedItems = (state.items ?? [])
+          .map((item) => {
+            const currentProduct = products.find((product) => product.id === item.product.id);
+
+            return currentProduct ? { ...item, product: currentProduct } : item;
+          })
+          .filter((item) => products.some((product) => product.id === item.product.id));
+
+        return {
+          ...state,
+          items: refreshedItems
+        };
+      }
     }
   )
 );

@@ -1,7 +1,5 @@
 import type { Product, ProductCategory } from "@/types/product";
 
-const asset = (name: string) => `/assets/${name}`;
-
 export const categories: {
   name: ProductCategory;
   slug: string;
@@ -13,35 +11,40 @@ export const categories: {
     name: "Footwear",
     slug: "footwear",
     description: "Sculpted runners, court silhouettes, and all-day performance soles.",
-    image: asset("category-footwear.png"),
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
     accent: "Track-ready energy"
   },
   {
     name: "Outerwear",
     slug: "outerwear",
     description: "Weather-aware layers with clean lines and technical comfort.",
-    image: asset("category-outerwear.png"),
+    image:
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1200&q=80",
     accent: "Built for movement"
   },
   {
     name: "Training",
     slug: "training",
     description: "Sweat-ready essentials for sessions that move from gym to street.",
-    image: asset("category-training.png"),
+    image:
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
     accent: "Precision fit"
   },
   {
     name: "Lifestyle",
     slug: "lifestyle",
     description: "Premium daily pieces with an athletic silhouette and editorial finish.",
-    image: asset("category-lifestyle.png"),
+    image:
+      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80",
     accent: "Street refined"
   },
   {
     name: "Accessories",
     slug: "accessories",
     description: "Carry, cap, layer, and finish the uniform with technical details.",
-    image: asset("category-accessories.png"),
+    image:
+      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80",
     accent: "Final details"
   }
 ];
@@ -53,7 +56,8 @@ export const heroSlides = [
     body: "Lightweight layers, sculptural footwear, and elevated training staples for the city athlete.",
     cta: "Shop new arrivals",
     href: "/products?sort=new",
-    image: asset("hero-velocity.png")
+    image:
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=85"
   },
   {
     eyebrow: "Engineered essentials",
@@ -61,7 +65,8 @@ export const heroSlides = [
     body: "Technical textures, breathable knits, and tailored silhouettes that keep pace all day.",
     cta: "Explore training",
     href: "/products?category=Training",
-    image: asset("hero-uniform.png")
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&q=85"
   },
   {
     eyebrow: "Limited color story",
@@ -69,70 +74,71 @@ export const heroSlides = [
     body: "A restrained palette with one warm accent, designed for premium rotation.",
     cta: "View the edit",
     href: "/products?tag=limited",
-    image: asset("hero-carbon.png")
+    image:
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85"
   }
 ];
 
 const productImages = {
   runner: [
-    asset("aero-knit-runner-1.png"),
-    asset("aero-knit-runner-2.png"),
-    asset("aero-knit-runner-3.png")
+    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1465453869711-7e174808ace9?auto=format&fit=crop&w=1000&q=80"
   ],
   jacket: [
-    asset("carbon-zip-track-jacket-1.png"),
-    asset("carbon-zip-track-jacket-2.png"),
-    asset("carbon-zip-track-jacket-3.png")
+    "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=1000&q=80"
   ],
   legging: [
-    asset("tempo-sculpt-legging-1.png"),
-    asset("tempo-sculpt-legging-2.png"),
-    asset("tempo-sculpt-legging-3.png")
+    "https://images.unsplash.com/photo-1518310952931-b1de897abd40?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=1000&q=80"
   ],
   tee: [
-    asset("pulse-training-tee-1.png"),
-    asset("pulse-training-tee-2.png"),
-    asset("pulse-training-tee-3.png")
+    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1000&q=80"
   ],
   cargo: [
-    asset("street-flex-cargo-1.png"),
-    asset("street-flex-cargo-2.png"),
-    asset("street-flex-cargo-3.png")
+    "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1507680434567-5739c80be1ac?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1000&q=80"
   ],
   sneaker: [
-    asset("orbit-court-sneaker-1.png"),
-    asset("orbit-court-sneaker-2.png"),
-    asset("orbit-court-sneaker-3.png")
+    "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=1000&q=80"
   ],
   hoodie: [
-    asset("thermal-cloud-hoodie-1.png"),
-    asset("thermal-cloud-hoodie-2.png"),
-    asset("thermal-cloud-hoodie-3.png")
+    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1618354691229-88d47f285158?auto=format&fit=crop&w=1000&q=80"
   ],
   windbreaker: [
-    asset("nova-mesh-windbreaker-1.png"),
-    asset("nova-mesh-windbreaker-2.png"),
-    asset("nova-mesh-windbreaker-3.png")
+    "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=1000&q=80"
   ],
   gilet: [
-    asset("altitude-thermal-gilet-1.png"),
-    asset("altitude-thermal-gilet-2.png"),
-    asset("altitude-thermal-gilet-3.png")
+    "https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80"
   ],
   shorts: [
-    asset("cadence-knit-short-1.png"),
-    asset("cadence-knit-short-2.png"),
-    asset("cadence-knit-short-3.png")
+    "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?auto=format&fit=crop&w=1000&q=80"
   ],
   bra: [
-    asset("form-curve-bra-1.png"),
-    asset("form-curve-bra-2.png"),
-    asset("form-curve-bra-3.png")
+    "https://images.unsplash.com/photo-1518310952931-b1de897abd40?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1000&q=80"
   ],
   duffle: [
-    asset("motion-carry-duffle-1.png"),
-    asset("motion-carry-duffle-2.png"),
-    asset("motion-carry-duffle-3.png")
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=1000&q=80",
+    "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1000&q=80"
   ]
 };
 

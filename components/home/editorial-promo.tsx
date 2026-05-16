@@ -9,7 +9,7 @@ export function EditorialPromo() {
     <section className="grid lg:grid-cols-2">
       <MotionReveal className="relative min-h-[34rem] overflow-hidden">
         <Image
-          src="/assets/promo-run.png"
+          src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&w=1400&q=80"
           alt="Runner in premium training apparel"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
@@ -28,7 +28,7 @@ export function EditorialPromo() {
       </MotionReveal>
       <MotionReveal delay={0.1} className="relative min-h-[34rem] overflow-hidden bg-foreground text-background">
         <Image
-          src="/assets/promo-street.png"
+          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80"
           alt="Editorial fashion movement"
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
