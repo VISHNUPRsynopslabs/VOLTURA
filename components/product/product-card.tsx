@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Eye, Heart, ShoppingBag, Star } from "lucide-react";
 import { toast } from "sonner";
 import type { Product } from "@/types/product";
@@ -20,6 +20,7 @@ type ProductCardProps = {
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const [quickViewOpen, setQuickViewOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
   const addItem = useCartStore((state) => state.addItem);
   const toggleWishlist = useCartStore((state) => state.toggleWishlist);
   const wishlistIds = useCartStore((state) => state.wishlistIds);
@@ -34,10 +35,10 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   return (
     <>
       <motion.article
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.5, delay: Math.min(index * 0.04, 0.22) }}
+        transition={{ duration: 0.32, delay: Math.min(index * 0.025, 0.12) }}
         className="group"
       >
         <div className="relative overflow-hidden bg-muted">
@@ -47,14 +48,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               alt={product.name}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="touch-no-transform object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <Image
               src={product.images[1] ?? product.images[0]}
               alt={`${product.name} alternate view`}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              className="hidden object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:block"
             />
           </Link>
           <div className="absolute left-3 top-3 flex flex-wrap gap-2">
@@ -84,7 +85,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
               <Eye className="h-4 w-4" />
             </Button>
           </div>
-          <div className="absolute inset-x-3 bottom-3 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="absolute inset-x-3 bottom-3 translate-y-0 opacity-100 transition-all duration-200 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
             <Button className="w-full" onClick={quickAdd}>
               <ShoppingBag className="mr-2 h-4 w-4" /> Quick add
             </Button>

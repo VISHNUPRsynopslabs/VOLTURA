@@ -140,7 +140,7 @@ export function ProductListingClient({ products }: ProductListingClientProps) {
             Filter technical apparel, footwear, and lifestyle essentials by category, audience, collection, and price.
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-center">
           <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" className="lg:hidden">
@@ -155,7 +155,7 @@ export function ProductListingClient({ products }: ProductListingClientProps) {
             </SheetContent>
           </Sheet>
           <Select value={sort} onValueChange={setSort}>
-            <SelectTrigger className="w-56">
+            <SelectTrigger className="w-full min-[420px]:w-56">
               <SelectValue placeholder="Sort" />
             </SelectTrigger>
             <SelectContent>

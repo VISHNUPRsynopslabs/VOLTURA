@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function ProductGallery({ images, name }: { images: string[]; name: string }) {
   const [active, setActive] = useState(images[0]);
   const [origin, setOrigin] = useState("50% 50%");
+  const reduceMotion = useReducedMotion();
 
   return (
     <div className="grid gap-4 lg:grid-cols-[5rem_1fr]">
@@ -27,6 +28,10 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
       <motion.div
         className="group relative order-1 aspect-[4/5] overflow-hidden bg-muted lg:order-2"
         onMouseMove={(event) => {
+          if (reduceMotion || window.matchMedia("(hover: none)").matches) {
+            return;
+          }
+
           const rect = event.currentTarget.getBoundingClientRect();
           const x = ((event.clientX - rect.left) / rect.width) * 100;
           const y = ((event.clientY - rect.top) / rect.height) * 100;
@@ -39,7 +44,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
           fill
           priority
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-125"
+          className="touch-no-transform object-cover transition-transform duration-500 md:group-hover:scale-110"
           style={{ transformOrigin: origin }}
         />
       </motion.div>

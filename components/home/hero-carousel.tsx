@@ -3,36 +3,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { heroSlides } from "@/data/products";
 import { Button } from "@/components/ui/button";
 
 export function HeroCarousel() {
   const [active, setActive] = useState(0);
+  const reduceMotion = useReducedMotion();
   const slide = heroSlides[active];
 
   useEffect(() => {
+    if (reduceMotion) {
+      return;
+    }
+
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % heroSlides.length);
     }, 6200);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [reduceMotion]);
 
   function updateSlide(direction: 1 | -1) {
     setActive((current) => (current + direction + heroSlides.length) % heroSlides.length);
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-5rem)] overflow-hidden">
+    <section className="relative min-h-[calc(100svh-5rem)] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={slide.title}
-          initial={{ opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 1.015 }}
+          animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
+          exit={reduceMotion ? undefined : { opacity: 0 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0"
         >
           <Image
@@ -47,19 +52,21 @@ export function HeroCarousel() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="container relative z-10 flex min-h-[calc(100vh-5rem)] items-end pb-16 pt-24">
+      <div className="container relative z-10 flex min-h-[calc(100svh-5rem)] items-end pb-16 pt-24 sm:pb-20">
         <motion.div
           key={slide.title}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.1 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           className="max-w-4xl text-white"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/72">{slide.eyebrow}</p>
-          <h1 className="mt-5 font-display text-6xl uppercase leading-[0.86] tracking-normal md:text-8xl lg:text-9xl">
+          <p className="max-w-full text-xs font-semibold uppercase tracking-[0.22em] text-white/72 sm:tracking-[0.32em]">
+            {slide.eyebrow}
+          </p>
+          <h1 className="responsive-display mt-5 max-w-[10ch] font-display uppercase tracking-normal lg:text-9xl">
             {slide.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/78 md:text-xl">{slide.body}</p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/78 sm:text-lg md:text-xl md:leading-8">{slide.body}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-white text-black hover:bg-white/88">
               <Link href={slide.href}>{slide.cta}</Link>
